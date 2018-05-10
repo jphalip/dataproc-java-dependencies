@@ -33,15 +33,15 @@ object TranslateExample {
       System.exit(1)
     }
   	
-  	val source = "gs://jphalip-scala-bucket/words.txt" //args(0)
+  	val source = args(0)
   	
-	val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
+    val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
 
-	val textFile = spark.read.textFile(source)
+    val textFile = spark.read.textFile(source)
 		
-  	val translate = TranslateOptions.getDefaultInstance().getService()
+    val translate = TranslateOptions.getDefaultInstance().getService()
 	
-	textFile.collect().foreach(line => {
+    textFile.collect().foreach(line => {
       val translation =
 	    translate.translate(
 	      line,
@@ -50,6 +50,6 @@ object TranslateExample {
 	
 	    System.out.printf("Text: %s%n", line)
 	    System.out.printf("Translation: %s%n", translation.getTranslatedText())
-	})
+    })
   }
 }
