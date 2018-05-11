@@ -27,18 +27,18 @@ object TranslateExample {
         """
           | Usage: TranslateExample <source>
           |
-          |     <source>: Path to the source file to translate
+          |     <source>: Path of the source file to translate
           |
         """.stripMargin)
       System.exit(1)
     }
   	
-  	val source = args(0)
+    val source = args(0)
   	
     val spark = SparkSession.builder.appName("Simple Application").getOrCreate()
 
     val textFile = spark.read.textFile(source)
-		
+
     val translate = TranslateOptions.getDefaultInstance().getService()
 	
     textFile.collect().foreach(line => {
@@ -47,9 +47,7 @@ object TranslateExample {
 	      line,
 	      TranslateOption.sourceLanguage("en"),
 	      TranslateOption.targetLanguage("fr"))
-	
-	    System.out.printf("Text: %s%n", line)
-	    System.out.printf("Translation: %s%n", translation.getTranslatedText())
+	    System.out.println(translation.getTranslatedText())
     })
   }
 }
