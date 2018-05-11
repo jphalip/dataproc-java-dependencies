@@ -89,31 +89,30 @@ limitations under the License.
                 </filter>
               </filters>
               <relocations>
-	              <relocation>
-	                <pattern>com</pattern>
-	                <shadedPattern>repackaged.com</shadedPattern>
-	                <includes>
-	                  <include>com.fasterxml.**</include>
-	                  <include>com.google.api.**</include>
-	                  <include>com.google.cloud.hadoop.gcsio.**</include>
-	                  <include>com.google.cloud.hadoop.util.**</include>
-	                  <include>com.google.common.**</include>
-	                </includes>
-	              </relocation>
-	              <relocation>
-	                <pattern>org</pattern>
-	                <shadedPattern>repackaged.org</shadedPattern>
-	                <includes>
-	                  <include>org.apache.commons.codec.**</include>
-	                  <include>org.apache.http.**</include>
-	                </includes>
-	              </relocation>
+                <relocation>
+                  <pattern>com</pattern>
+                  <shadedPattern>repackaged.com</shadedPattern>
+                  <includes>
+                    <include>com.fasterxml.**</include>
+                    <include>com.google.api.**</include>
+                    <include>com.google.cloud.hadoop.gcsio.**</include>
+                    <include>com.google.cloud.hadoop.util.**</include>
+                    <include>com.google.common.**</include>
+                  </includes>
+                </relocation>
+                <relocation>
+                  <pattern>org</pattern>
+                  <shadedPattern>repackaged.org</shadedPattern>
+                  <includes>
+                    <include>org.apache.commons.codec.**</include>
+                    <include>org.apache.http.**</include>
+                  </includes>
+                </relocation>
               </relocations>
             </configuration>
           </execution>
         </executions>
       </plugin>
-
     </plugins>
   </build>
 </project>
