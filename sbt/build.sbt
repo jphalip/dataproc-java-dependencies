@@ -9,22 +9,6 @@ lazy val shaded = (project in file("."))
 
 mainClass in (Compile, packageBin) := Some("demo.TranslateExample")
 
-
-
-/*libraryDependencies ++= Seq(
- "com.google.cloud" % "google-cloud-translate" % "1.29.0",
- "org.apache.spark" % "spark-sql_2.11" % "2.2.1"
-   exclude("commons-beanutils", "commons-beanutils-core")
-   exclude("commons-collections", "commons-collections")
-   exclude("commons-logging", "commons-logging")
-   //exclude("org.apache.hadoop", "hadoop-yarn-common")
-   exclude("org.spark-project.spark", "unused")
-   exclude("org.apache.spark", "spark-network-common_2.11")
-   exclude("org.apache.spark", "spark-network-shuffle_2.11")
-   exclude("org.slf4j", "jcl-over-slf4j")
-   exclude("org.codehaus.janino", "janino")
-)*/
-
 val excludedOrgs = Seq(
   "commons-beanutils",
   "commons-collections",
