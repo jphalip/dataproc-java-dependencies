@@ -2,13 +2,11 @@ This repository contains a simple demo Spark application that translates words u
 Google's Translation API and running on Cloud Dataproc.
 
 1. Compile the JAR (this may take a few minutes):
-
   * Option 1: with Maven
     ```
     cd maven
     mvn package
     ```
-
   * Option 2: with SBT
     ```
     cd sbt
