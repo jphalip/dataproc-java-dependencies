@@ -31,12 +31,13 @@ limitations under the License.
       <groupId>org.apache.spark</groupId>
       <artifactId>spark-sql_2.11</artifactId>
       <version>2.2.1</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-translate</artifactId>
-      <version>1.29.0</version>
+      <version>1.35.0</version>
     </dependency>
 
   </dependencies>
@@ -93,19 +94,7 @@ limitations under the License.
                   <pattern>com</pattern>
                   <shadedPattern>repackaged.com</shadedPattern>
                   <includes>
-                    <include>com.fasterxml.**</include>
-                    <include>com.google.api.**</include>
-                    <include>com.google.cloud.hadoop.gcsio.**</include>
-                    <include>com.google.cloud.hadoop.util.**</include>
                     <include>com.google.common.**</include>
-                  </includes>
-                </relocation>
-                <relocation>
-                  <pattern>org</pattern>
-                  <shadedPattern>repackaged.org</shadedPattern>
-                  <includes>
-                    <include>org.apache.commons.codec.**</include>
-                    <include>org.apache.http.**</include>
                   </includes>
                 </relocation>
               </relocations>

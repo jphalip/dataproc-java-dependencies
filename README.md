@@ -1,6 +1,16 @@
 This repository contains a simple demo Spark application that translates words using
 Google's Translation API and running on Cloud Dataproc.
 
+1. Record the project ID in an environment variable for later use:
+   ```
+   export PROJECT=$(gcloud info --format='value(config.project)')
+   ```
+
+1. Enable the translation API:
+   ```
+   gcloud services enable translate.googleapis.com
+   ```
+
 1. Compile the JAR (this may take a few minutes):
 
 * Option 1: with Maven
@@ -14,11 +24,6 @@ Google's Translation API and running on Cloud Dataproc.
   sbt assembly
   mv target/scala-2.11/translate-example-assembly-1.0.jar target/translate-example-1.0.jar
   ```
-
-2. Record the project ID in an environment variable for later use:
-   ```
-   export PROJECT=$(gcloud info --format='value(config.project)')
-   ```
 
 3. Create a bucket:
    ```
@@ -54,7 +59,6 @@ Google's Translation API and running on Cloud Dataproc.
    gcloud dataproc jobs submit spark \
    --cluster demo-cluster \
    --jar target/translate-example-1.0.jar \
-   --properties spark.driver.extraClassPath=translate-example-1.0.jar \
    -- fr gs://$PROJECT-bucket words.txt translated-fr
    ```
 
