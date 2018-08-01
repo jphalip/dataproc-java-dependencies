@@ -6,9 +6,9 @@ Google's Translation API and running on Cloud Dataproc.
    export PROJECT=$(gcloud info --format='value(config.project)')
    ```
 
-2. Enable the translation API:
+2. Enable the `translate` and `dataproc` APIs:
    ```
-   gcloud services enable translate.googleapis.com
+   gcloud services enable translate.googleapis.com dataproc.googleapis.com
    ```
 
 3. Compile the JAR (this may take a few minutes):
@@ -41,20 +41,15 @@ Google's Translation API and running on Cloud Dataproc.
    fish
    ```
 
-6. Enable the Cloud Dataproc and Translation APIs:
-   ```
-   gcloud services enable dataproc.googleapis.com translate.googleapis.com
-   ```
-
-7. Create a Cloud Dataproc cluster:
+6. Create a Cloud Dataproc cluster:
    ```
    gcloud dataproc clusters create demo-cluster \
    --zone=us-central1-a \
    --scopes=cloud-platform \
-   --image-version=1.2
+   --image-version=1.3
    ```
 
-8. Submit the Spark job to translate the words to French:
+7. Submit the Spark job to translate the words to French:
    ```
    gcloud dataproc jobs submit spark \
    --cluster demo-cluster \
@@ -62,7 +57,7 @@ Google's Translation API and running on Cloud Dataproc.
    -- fr gs://$PROJECT-bucket words.txt translated-fr
    ```
 
-9. Verify that the words have been translated:
+8. Verify that the words have been translated:
    ```
    gsutil cat gs://$PROJECT-bucket/translated-fr/part-*
    ```
